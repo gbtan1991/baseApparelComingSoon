@@ -4,9 +4,13 @@ const ComingSection = () => {
   return (
     <div>
       <header>
-        <div className="p-7"> 
-          <img src="/logo.svg" alt="" />
+        <div className="w-full h-20 p-6 "> 
+          <img src="/logo.svg" alt="" className="h-6" />
         </div>
+        <div>
+            
+        </div>
+
       </header>
     </div>
   );
