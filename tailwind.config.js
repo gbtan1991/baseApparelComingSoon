@@ -12,6 +12,10 @@ export default {
         redGradient1: "hsl(0, 80%, 86%)",
         redGradient2: "hsl(0, 74%, 74%)",
       },
+
+      fontFamily: {
+        theme: ["Josefin Sans", "sans-serif"],
+      }
     },
   },
   plugins: [],
