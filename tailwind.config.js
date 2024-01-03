@@ -15,7 +15,11 @@ export default {
 
       fontFamily: {
         theme: ["Josefin Sans", "sans-serif"],
-      }
+      },
+      backgroundImage: theme => ({
+        mobile: "url('/hero-mobile.jpg')",
+        desktop: "url('/hero-desktop.jpg')",
+      }),
     },
   },
   plugins: [],
