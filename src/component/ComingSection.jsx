@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ComingSection = () => {
+  const [email, setEmail] = useState("");
+  const [isValidEmail, setIsValidEmail] = useState(true)
+
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  setIsValidEmail(emailRegex.test(newEmail));
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if(isValidEmail) {
+      
+    }
+  }
+
+
   return (
-    <div className="">
+    <div className="bg-gradient-to-b from-lightGradient1 to-lightGradient2 h-screen">
       {/* LOGO SECTION */}
       <header className="w-full h-2 flex flex-col items-center">
         <div className="w-full p-6 ">
@@ -17,8 +37,10 @@ const ComingSection = () => {
         {/* CONTENT SECTION */}
         <div className="mt-4 p-8">
           <h3 className="font-theme font-semibold tracking-widest  text-4xl/10 text-center">
-            <span className="font-light text-desaturadedRed">WE'RE</span> COMING
-            SOON
+            <span className="font-light text-desaturadedRed tracking-widest">
+              WE'RE
+            </span>{" "}
+            COMING SOON
           </h3>
           <p className="mt-3 font-theme text-sm text-desaturadedRed text-center">
             Hello fellow shoppers! We're currently building our new fashion
@@ -28,15 +50,26 @@ const ComingSection = () => {
         </div>
 
         {/* EMAIL SECTION */}
-        <div className="flex justify-between  rounded-full border w-4/5  border-redGradient1">
+        <div>
+        <form className="flex justify-between mx-4 rounded-full border border-redGradient1 h-10 w-fit ">
           <input
             type="email"
+            name="email"
             placeholder="Email Address"
-            className="px-6 rounded-full placeholder-redGradient1 text-sm font-theme"
+            className="px-6 placeholder-redGradient1 text-sm font-theme bg-transparent"
           />
-          <button className="px-6 py-3 bg-gradient-to-r from-redGradient1 to-redGradient2 rounded-full shadow-lg shadow-redGradient1 cursor-pointer">
-            <img src="/icon-arrow.svg" />
-          </button>
+          <div className="flex items-center gap-3">
+            <img src="/icon-error.svg" className="w-5 h-5" />
+            <button
+              for="email"
+              className=" h-10 px-6 py-3 bg-gradient-to-r from-redGradient1 to-redGradient2 rounded-full shadow-lg shadow-redGradient1 cursor-pointer"
+            >
+              <img src="/icon-arrow.svg" className="min-h-5" />
+            </button>
+          </div>
+        </form>
+
+        <p className="text-xs py-2 px-10 text-red-500">Please provide a valid email</p>
         </div>
       </header>
     </div>
