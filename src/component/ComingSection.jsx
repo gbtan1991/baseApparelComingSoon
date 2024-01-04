@@ -1,37 +1,32 @@
 import React, { useState } from "react";
 
 const ComingSection = () => {
-  // const [email, setEmail] = useState("");
-  // const [isValidEmail, setIsValidEmail] = useState(true)
 
-  // const handleEmailChange = (e) => {
-  //   const newEmail = e.target.value;
-  //   setEmail(newEmail);
-  // }
-
-  // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  // setIsValidEmail(emailRegex.test(newEmail));
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   if(isValidEmail) {
-
-  //   }
-  // }
 
   return (
-    <div className="flex">
-      <div className="bg-red-300 w-[56%] h-screen"></div>
-      <div className="hidden bg-desktop bg-contain md:bg-contain bg-no-repeat md:block md:w-[44%] md:h-screen flex-grow"></div>
+    <div className="flex justify-between">
+      <div className="w-screen md:w-[50%] h-screen">
+      <div className="bg-gradient-to-b from-lightGradient1 to-lightGradient2 h-screen overflow-auto">
+       {/* LOGO SECTION */}
+     <header className="w-full h-2 flex flex-col items-center">
+       <div className="w-full p-6 ">
+         <img src="/logo.svg" alt="compnay logo" className="h-5 grow" />
+       </div>
+    </header>
+
+       </div> 
+      </div>
+      
+      <div className="bg-desktop bg-no-repeat bg-right bg-cover hidden md:block 2xl:bg-contain h-screen w-[50%] "></div>
     </div>
 
-    // <div className="bg-gradient-to-b from-lightGradient1 to-lightGradient2 h-screen overflow-auto">
-    // {/* LOGO SECTION */}
-    // <header className="w-full h-2 flex flex-col items-center">
-    //   <div className="w-full p-6 ">
-    //     <img src="/logo.svg" alt="compnay logo" className="h-5 grow" />
-    //   </div>
+  );
+};
+
+export default ComingSection;
+
+    
+    
 
     //   {/* HERO SECTION */}
     //   <div className="bg-contain xs:bg-cover bg-no-repeat bg-mobile md:hidden">
@@ -81,7 +76,3 @@ const ComingSection = () => {
     // <div className="hidden bg-no-repeat  md:block md:bg-desktop">
     // <div className="w-svw"></div>
     // </div>
-  );
-};
-
-export default ComingSection;
