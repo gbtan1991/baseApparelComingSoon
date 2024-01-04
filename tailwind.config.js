@@ -19,6 +19,7 @@ export default {
       backgroundImage: theme => ({
         mobile: "url('/hero-mobile.jpg')",
         desktop: "url('/hero-desktop.jpg')",
+        pattern: "url('/bg-pattern-desktop.svg')",
       }),
 
       
