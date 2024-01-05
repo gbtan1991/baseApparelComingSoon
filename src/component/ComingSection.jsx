@@ -2,6 +2,28 @@ import React, { useState } from "react";
 
 const ComingSection = () => {
 
+  const [showError, setShowError] = useState(false);
+  const [email, setEmail] = useState('');
+
+  const handleInputChange = (event) =>{
+    setEmail(event.target.value);
+    console.log(email)
+  }
+
+
+  const handleSubmit = () => {
+    
+
+    if(!email) {
+      setShowError(true);
+    } else{
+      console.log("Email submitted", email)
+      setEmail("");
+      setShowError(false);
+    }
+  }
+
+
   return (
     <div className="flex justify-between overflow-auto md:bg-pattern md:bg-cover md:bg-center">
       <div className="w-screen md:w-[50%] h-screen bg-gradient-to-b from-lightGradient1 to-lightGradient2 md:from-transparent md:to-transparent ">
@@ -35,27 +57,31 @@ const ComingSection = () => {
 
   {/* EMAIL SECTION */}
   <div className="px-8 ">
-          <form className="flex rounded-full border border-redGradient1 h-10 w-fit ">
+          <form className="flex justify-between rounded-full border border-redGradient1 h-10 w-1/8 ">
             <input
               type="email"
               name="email"
               placeholder="Email Address"
-              className="px-6 placeholder-redGradient1 text-sm font-theme bg-transparent"
+              className="px-6 placeholder-redGradient1 text-sm font-theme bg-transparent "
+              
             />
             <div className="flex items-center  flex-row gap-3">
-              <img src="/icon-error.svg" className="w-5 h-5" />
+            {showError && <img src="/icon-error.svg" className="w-5 h-5" />}
               <button
-                for="email"
+                
                 className=" h-10 w-12 bg-gradient-to-r from-redGradient1 to-redGradient2 rounded-full shadow-lg shadow-redGradient1 cursor-pointer center grid place-content-center"
+                onClick={handleSubmit}
+                value={email} // Set the value to the email state
+                onChange={handleInputChange} // Handle input changes
               >
-                <img src="/icon-arrow.svg" className="w-4 h-4 " />
+               <img src="/icon-arrow.svg" className="w-4 h-4 " />
               </button>
             </div>
           </form>
 
-          <p className="text-xs py-2 px-10 text-red-500">
+          {showError && <p className="text-xs py-2 px-10 text-red-500">
             Please provide a valid email
-          </p>
+          </p>}
         </div>
 
           
