@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
 const ComingSection = () => {
+
   return (
     <div className="flex justify-between overflow-auto md:bg-pattern md:bg-cover md:bg-center">
       <div className="w-screen md:w-[50%] h-screen bg-gradient-to-b from-lightGradient1 to-lightGradient2 md:from-transparent md:to-transparent ">
-        <div className="flex flex-col md:p-16 md:gap-10">
+        <div className="flex flex-col md:m-10 md:p-10 xl:m-20 xl:p-20 3xl:m-28 3xl:p-28 ">
           {/* LOGO SECTION */}
           <header className="w-full flex flex-col items-center ">
             <div className="w-full p-8 ">
@@ -18,7 +19,7 @@ const ComingSection = () => {
 
 
         {/* CONTENT SECTION */}
-        <div className="xs:mt-4 p-8">
+        <div className="xs:mt-4 p-8 ">
           <h3 className="font-theme font-semibold tracking-widest text-darkGrayisRed  text-4xl/10 text-center md:text-5xl/none md:text-left">
             <span className="font-light text-desaturadedRed tracking-widest">
               WE'RE
@@ -72,10 +73,3 @@ const ComingSection = () => {
 
 export default ComingSection;
 
-//
-
-// </header>
-// </div>
-// <div className="hidden bg-no-repeat  md:block md:bg-desktop">
-// <div className="w-svw"></div>
-// </div>
