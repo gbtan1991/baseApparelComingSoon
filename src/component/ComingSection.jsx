@@ -1,28 +1,26 @@
 import React, { useState } from "react";
 
 const ComingSection = () => {
-
   const [showError, setShowError] = useState(false);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
 
-  const handleInputChange = (event) =>{
+  const handleInputChange = (event) => {
     setEmail(event.target.value);
-    console.log(email)
-  }
-
+  };
 
   const handleSubmit = () => {
-    
+    const emailRegex = /^([^@]*@[^@]*){1}$/
 
-    if(!email) {
+    if (!email || !emailRegex.test(email)) {
       setShowError(true);
-    } else{
-      console.log("Email submitted", email)
+    }
+    
+    else {
+      console.log("Email submitted", email);
       setEmail("");
       setShowError(false);
     }
-  }
-
+  };
 
   return (
     <div className="flex justify-between overflow-auto md:bg-pattern md:bg-cover md:bg-center">
@@ -39,56 +37,50 @@ const ComingSection = () => {
             <div className="h-[165px] xxs:h-[250px] w-screen"></div>
           </div>
 
+          {/* CONTENT SECTION */}
+          <div className="xs:mt-4 p-8 ">
+            <h3 className="font-theme font-semibold tracking-widest text-darkGrayisRed  text-4xl/10 text-center md:text-5xl/none md:text-left">
+              <span className="font-light text-desaturadedRed tracking-widest">
+                WE'RE
+              </span>{" "}
+              COMING SOON
+            </h3>
+            <p className="mt-3 font-theme text-sm text-desaturadedRed text-center md:text-left md:text-base ">
+              Hello fellow shoppers! We're currently building our new fashion
+              store. Add your email below to stay up-to-date with announcements
+              and our launch deals.
+            </p>
+          </div>
 
-        {/* CONTENT SECTION */}
-        <div className="xs:mt-4 p-8 ">
-          <h3 className="font-theme font-semibold tracking-widest text-darkGrayisRed  text-4xl/10 text-center md:text-5xl/none md:text-left">
-            <span className="font-light text-desaturadedRed tracking-widest">
-              WE'RE
-            </span>{" "}
-            COMING SOON
-          </h3>
-          <p className="mt-3 font-theme text-sm text-desaturadedRed text-center md:text-left md:text-base ">
-            Hello fellow shoppers! We're currently building our new fashion
-            store. Add your email below to stay up-to-date with announcements
-            and our launch deals.
-          </p>
-        </div>
-
-  {/* EMAIL SECTION */}
-  <div className="px-8 ">
-          <form className="flex justify-between rounded-full border border-redGradient1 h-10 w-1/8 ">
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              className="px-6 placeholder-redGradient1 text-sm font-theme bg-transparent "
-              
-            />
-            <div className="flex items-center  flex-row gap-3">
+          {/* EMAIL SECTION */}
+          <div className="px-8 ">
+        <div className="flex justify-between rounded-full border border-redGradient1 h-10 w-1/8 ">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={email} // Reflect the state of the email variable
+            onChange={handleInputChange} // Handle input changes
+            className="px-6 placeholder-redGradient1 text-sm font-theme bg-transparent "
+          />
+          <div className="flex items-center  flex-row gap-3">
             {showError && <img src="/icon-error.svg" className="w-5 h-5" />}
-              <button
-                
-                className=" h-10 w-12 bg-gradient-to-r from-redGradient1 to-redGradient2 rounded-full shadow-lg shadow-redGradient1 cursor-pointer center grid place-content-center"
-                onClick={handleSubmit}
-                value={email} // Set the value to the email state
-                onChange={handleInputChange} // Handle input changes
-              >
-               <img src="/icon-arrow.svg" className="w-4 h-4 " />
-              </button>
-            </div>
-          </form>
+            <button
+              className="h-10 w-12 bg-gradient-to-r from-redGradient1 to-redGradient2 rounded-full shadow-lg shadow-redGradient1 cursor-pointer center grid place-content-center"
+              onClick={handleSubmit}
+            >
+              <img src="/icon-arrow.svg" className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
 
-          {showError && <p className="text-xs py-2 px-10 text-red-500">
+        {showError && (
+          <p className="text-xs py-2 px-10 text-red-500">
             Please provide a valid email
-          </p>}
-        </div>
-
-          
-        </div>
-
-
-      
+          </p>
+        )}
+      </div>
+    </div>
       </div>
 
       {/* DESKTOP HERO SECTION */}
@@ -98,4 +90,3 @@ const ComingSection = () => {
 };
 
 export default ComingSection;
-
